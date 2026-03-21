@@ -33,7 +33,8 @@ const VideoCall = () => {
         }
 
         // Initialize Socket
-        socketRef.current = io('http://localhost:5050'); // Adjust to your backend URL
+        const backendURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5050';
+        socketRef.current = io(backendURL); 
 
         startVideo().then((currentStream) => {
             if (currentStream) {
