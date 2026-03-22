@@ -14,6 +14,7 @@ export const bookAppointment = (data) => api.post('/appointments', data);
 export const getVideoToken = () => api.get('/video/token');
 
 // Interceptor for handling errors (optional but good practice)
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {

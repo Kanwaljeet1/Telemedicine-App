@@ -5,7 +5,7 @@ import app from "./App.js";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-const PORT = process.env.PORT || 'https://telemedicine-app-newest.onrender.com';
+const PORT = process.env.PORT || 5050;
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -26,8 +26,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("signal", (data) => {
-    // Forward signal data to the other person in the room
-    io.to(data.roomID).emit("signal", {
+    // Forward signal data to everyone in the room EXCEPT the sender
+    socket.to(data.roomID).emit("signal", {
       signal: data.signal,
       from: socket.id
     });

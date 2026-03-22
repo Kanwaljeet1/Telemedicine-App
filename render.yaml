@@ -38,6 +38,12 @@ services:
           name: telemedicine-backend
           property: host
         transformation: "https://${value}/api"
+      - key: VITE_BACKEND_URL
+        fromService:
+          type: web
+          name: telemedicine-backend
+          property: host
+        transformation: "https://${value}"
 
 databases:
   - name: telemedicine-db

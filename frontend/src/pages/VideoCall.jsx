@@ -96,7 +96,13 @@ const VideoCall = () => {
         const peer = new Peer({
             initiator: true,
             trickle: false,
-            stream: currentStream
+            stream: currentStream,
+            config: {
+                iceServers: [
+                    { urls: 'stun:stun.l.google.com:19302' },
+                    { urls: 'stun:stun1.l.google.com:19302' }
+                ]
+            }
         });
 
         peer.on('signal', (data) => {
@@ -120,7 +126,13 @@ const VideoCall = () => {
         const peer = new Peer({
             initiator: false,
             trickle: false,
-            stream: currentStream
+            stream: currentStream,
+            config: {
+                iceServers: [
+                    { urls: 'stun:stun.l.google.com:19302' },
+                    { urls: 'stun:stun1.l.google.com:19302' }
+                ]
+            }
         });
 
         peer.on('signal', (data) => {
