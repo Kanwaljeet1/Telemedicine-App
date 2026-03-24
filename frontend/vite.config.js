@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://telemedicine-app-newest.onrender.com',
+        target: 'https://telemedicine-app-9.onrender.com',
         changeOrigin: true,
         secure: false,
       },
